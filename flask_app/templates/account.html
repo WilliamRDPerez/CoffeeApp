@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css')}}">
+    <title>Register</title>
+</head>
+
+
+<body>
+    <form action="/user/{{user.id}}/postUpdate" method="POST">
+        <h3 >Registration Form</h3>
+        {% with messages = get_flashed_messages(category_filter=['register']) %}
+            {% if messages %}
+                <strong>Something aint right here...</strong>
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" placeholder="First name">
+    
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" placeholder="Last name">
+    
+        <label for="email">Email:</label>
+        <input type="text" name="email" placeholder="Email">
+
+        <label for="address">Address:</label>
+        <input type="text" name="address" placeholder="Address">
+
+        <label for="city">City:</label>
+        <input type="text" name="city" placeholder="City">
+
+        <label for="state">State:</label>
+        <select placeholder="State">
+            <option>Nevada</option>
+            <option>California</option>
+            <option>South Carolina</option>
+            <option>(Whichever state Mariyln is from)</option>
+        </select>
+    
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Password">
+    
+        <label for="confirm">Confirm Password:</label>
+        <input type="password" name="confirm" placeholder="Confirm Password">
+        
+        <input type="submit" value="Register" class="btn btn-primary">
+    
+        <p>Already have an account? Click <a href="/log_in">here</a> </p>
+    </form>
+
+    <!-- For loop to show all past orders -->
+    
+</body>
+
+</html>
