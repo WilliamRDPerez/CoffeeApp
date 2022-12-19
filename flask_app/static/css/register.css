@@ -1,0 +1,15 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.main-div {
+    width: 1000px;
+    height: 1000px;
+}
+
+.register-container {
+    border: 2px solid black;
+    width: 250px;
+    height: 300px;
+}
