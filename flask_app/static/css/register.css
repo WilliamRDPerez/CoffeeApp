@@ -3,13 +3,104 @@
     padding: 0px;
 }
 
-.main-div {
+.register_main_div {
+    margin: 0px auto;
     width: 1000px;
     height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.register-container {
-    border: 2px solid black;
-    width: 250px;
-    height: 300px;
+.register_form_container {
+    width: 500px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register_h3 {
+    position: relative;
+    bottom: 30px;
+    right: 5px;
+    text-align: center;
+}
+
+.form_div {
+    width: 350px;
+}
+
+.first_last_name_all_inputs_register {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#first_name_input {
+    margin-right: 20px;
+}
+
+.first_last_name_input_register {
+    padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 20px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: Minecraft, sans-serif;
+	color: #2C3E50;
+	font-size: 13px;
+}
+
+.city_state_zipcode_all_inputs_register {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.city_state_zipcode_input_register {
+    padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 20px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: Minecraft, sans-serif;
+	color: #2C3E50;
+	font-size: 13px;
+}
+
+#city_input, #state_input {
+    margin-right: 20px;
+}
+
+.submit_div {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#register_button {
+    width: 100%;
+	background: #006c43;
+	font-weight: bold;
+	color: rgb(3, 3, 3);
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+    text-align: center;
+}
+
+.register_inputs {
+    width: 100%;
+    position: relative;
+    padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+	font-family: Minecraft, sans-serif;
+	color: #2C3E50;
+	font-size: 13px;
 }
