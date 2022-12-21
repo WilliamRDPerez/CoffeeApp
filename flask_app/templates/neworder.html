@@ -15,15 +15,16 @@
     <div class="row new-order">
         <div class="col text-light">Coffee App</div>
             
-        <div class="col-md-auto"><a href="" class="text-light view-link">Home</a></div>
+        <div class="col-md-auto"><a href='/dashboard' class="text-light view-link">Home</a></div>
         <div class="col-md-auto"><a href="" class="text-light view-link">Order</a></div>
         <div class="col-md-auto"><a href="" class="text-light view-link">Account</a></div>
-        <div class="col col-lg-2"><a href="" class="text-light view-link">Logout</a></div>
+        <div class="col col-lg-2"><a href='/logout' class="text-light view-link">Logout</a></div>
     </div>
 
     <div class="new-container">
-        <form class="new-form">
-            <h1 class="text-center">New Order</h1>
+        
+        <form action='/create/new' method="post">
+            <h1 class="text-center">New Order</h1> 
                 
                 <div class="form-group p-2">
                     <div class="form-check">
