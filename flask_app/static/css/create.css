@@ -1,0 +1,42 @@
+.order-view{
+    height: 5px;;
+}
+
+.card{
+    align-content: center;
+    margin: 100px 360px;
+    border: 3px solid black;
+}
+
+.new-order {
+    height: 50px;
+}
+
+.new-container{
+    margin: 80px 300px;
+    border: 2px solid black;
+    background-image: url("https://i0.wp.com/ideawallpapers.com/wp-content/uploads/2021/12/coffee-weheartit-1.jpg?fit=611%2C763&ssl=1");
+}
+
+
+.new-order {
+    border: 2px solid black;
+    height: 150px;
+    background-image: url("http://cdn.shopify.com/s/files/1/0312/2897/articles/coffee_beans.png?v=1648141678");
+
+}
+
+.order-view{
+    background-image: url("http://cdn.shopify.com/s/files/1/0312/2897/articles/coffee_beans.png?v=1648141678");
+    height: 150px;
+}
+
+.view-link{
+    background-color: rgb(91, 107, 49);
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid rgb(240, 234, 210);
+    border-radius: 5px;
+}
+
