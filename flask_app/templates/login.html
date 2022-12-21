@@ -4,31 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loginaccount.css')}}">
+
     <title>Login</title>
 </head>
 <body>
 
-<form action="/users/login" method="POST" >
-    <h3>Login</h3>
-    {% with messages = get_flashed_messages(category_filter=['login']) %}
-        {% if messages %}
-            <strong>Something aint right...</strong>
-                {% for message in messages %}
-                    <p>{{message}}</p>
-                {% endfor %}
-        {% endif %}
-    {% endwith %}
-    <label for="email">Email:</label>
-    <input type="text" name="email" placeholder="Email">
+    <form action="/login" method="POST" id="msform">
+            <h3>Login</h3>
+                {% with messages = get_flashed_messages(category_filter=['login']) %}
+                    {% if messages %}
+                        <strong style="color: red;">Something aint right...</strong>
+                            {% for message in messages %}
+                                <p style="color: red;">{{message}}</p>
+                            {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <label for="email">Email:</label>
+                <input type="text" name="email" placeholder="Email">
 
-    <label for="password">Password:</label>
-    <input type="password" name="password" placeholder="Password"> 
+                <label for="password">Password:</label>
+                <input type="password" name="password" placeholder="Password"> 
 
-    <input type="submit" value="Login" class="btn btn-success">
+                <input type="submit" value="Login" class="action-button">
 
-    <p>Don't have an account? Click <a href="/">here</a> </p>
+                <p>Don't have an account? Click <a href="/register_here">here</a> </p>
+        
+        
 
-</form>
+    </form>
 
 
 </body>

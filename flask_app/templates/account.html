@@ -9,7 +9,7 @@
 
 
 <body>
-    <form action="/user/{{user.id}}/postUpdate" method="POST">
+    <form action="/user/{{user.id}}/postUpdate" method="POST" id="msform">
         <h3 >Registration Form</h3>
         {% with messages = get_flashed_messages(category_filter=['register']) %}
             {% if messages %}

@@ -1,18 +1,62 @@
-# imports from flask
-# app
-# models
-# bcrypt
+from flask import render_template, session, redirect, request
+from flask_app import app
 
-#William
-#this route renders the login template
-# @app.route('/login')
-# def index():
-#     return render_template('login.html)
+from flask_app.models.user import User 
+from flask_app.models.coffee import Coffee
 
-#this route would post the registration
-#@app.route('/users/login', methods=["POST"])
-#def registration();
-    # --code --
+from flask import flash
 
-    #return redirect('/dashboard'(or whichever route it is))
-#William
+from flask_bcrypt import Bcrypt
+bcrypt = Bcrypt(app)
+
+@app.route("/")
+def index():
+    return render_template("login.html")
+
+@app.route("/register_here")
+def register_here():
+    return render_template("register.html")
+
+@app.route("/register", methods=["POST"])
+def register():
+    valid_user = User.create_valid_user(request.form)
+
+    if not valid_user:
+        return redirect("/register_here")
+    
+    session["user_id"] = valid_user.id
+    
+    return redirect("/dashboard")
+
+@app.route("/login", methods=["POST"])
+def login():
+        valid_user = User.get_by_email(request.form)
+    
+        if not valid_user:
+            flash("Invalid email/password","login")
+            return redirect("/")
+
+        if not bcrypt.check_password_hash(valid_user.password, request.form['password']):
+            flash("Invalid email/password","login")
+            return redirect('/log_in')
+
+        session["user_id"] = valid_user.id
+        return redirect("/dashboard")
+    
+
+@app.route("/dashboard")
+def dashboard():
+    if "user_id" not in session:
+        flash("You must be logged in to access the dashboard.")
+        return redirect("/")
+    
+    user = User.get_by_id(session["user_id"])
+    coffees = Coffee.get_all()
+    
+    return render_template("dashboard.html", user=user, coffees=coffees)
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")

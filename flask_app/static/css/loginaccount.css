@@ -1,0 +1,53 @@
+#msform {
+	width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+    margin-top: 100px;
+  
+}
+
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: Minecraft, sans-serif;
+	color: #2C3E50;
+	font-size: 13px;
+}
+/*buttons*/
+#msform .action-button {
+	width: 400px;
+	background: #006c43;
+	font-weight: bold;
+	color: rgb(3, 3, 3);
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #000000;
+}
+
+header{
+  font-size: xx-large;
+  margin: 25px 0px;
+}
+
+.form-fields>input{
+  border-radius: 30px;
+}
+
+.submit-input, button{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+
+}
