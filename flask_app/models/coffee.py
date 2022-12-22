@@ -128,7 +128,7 @@ class Coffee:
         # Update the data in the database.
         query = """UPDATE coffees
                     SET 
-                    size = %(size)s, carry_cout = %(carry_out)s, temp = %(temp)s, quantity = %(quantity)s, coffee - %(coffee)s, latte = %(latte)s, americano = %(americano)s, cappucino = %(cappucino)s, caramel = %(caramel)s, espresso = %(espresso)s
+                    size = %(size)s, carry_out = %(carry_out)s, temp = %(temp)s, quantity = %(quantity)s, coffee - %(coffee)s, latte = %(latte)s, americano = %(americano)s, cappucino = %(cappucino)s, caramel = %(caramel)s, espresso = %(espresso)s
                     WHERE id = %(id)s;"""
         result = connectToMySQL(DB).query_db(query,coffee_dict)
         coffee = cls.get_by_id(coffee_dict["id"])
@@ -155,16 +155,14 @@ class Coffee:
     def is_valid(coffee_dict):
         valid = True
         flash_string = " field is required and must be at least 3 characters."
-        if len(coffee_dict["name"]) < 3:
-            flash("name " + flash_string)
-            valid = False
-        if len(coffee_dict["description"]) < 3:
-            flash("Description " + flash_string)
-            valid = False
-
-        if len(coffee_dict["date"]) <= 0:
-            flash("Date is required.")
-            valid = False
-
+        if 'quantity' not in coffee_dict:
+            flash("Give me a number.")
+            is_valid = False
+        if 'size' not in coffee_dict:
+            flash("Give me a size.")
+            is_valid = False
+        if 'temp' not in coffee_dict:
+            flash("Give me a number.")
+            is_valid = False
 
         return valid
