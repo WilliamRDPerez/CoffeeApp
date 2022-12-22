@@ -4,21 +4,32 @@
 	text-align: center;
 	position: relative;
     margin-top: 100px;
-  
+	font-family: URW Chancery L, cursive;
+
 }
 
+
 /*inputs*/
-#msform input, #msform textarea {
+#msform input, #msform textarea, #msform select {
 	padding: 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	margin-bottom: 10px;
 	width: 100%;
 	box-sizing: border-box;
-	font-family: Minecraft, sans-serif;
+	font-family:URW Chancery L, cursive;
 	color: #2C3E50;
 	font-size: 13px;
+	box-shadow: 10px 10px 10px black;
 }
+
+#msform input:hover {
+	box-shadow: 10px 10px 10px  rgb(8, 90, 15);
+  }
+  #msform select:hover {
+	box-shadow: 10px 10px 10px  rgb(8, 90, 15);
+  }
+
 /*buttons*/
 #msform .action-button {
 	width: 400px;
@@ -51,3 +62,402 @@ header{
   margin: 5px;
 
 }
+
+.card2 {
+	/* Add shadows to create the "card" effect */
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	color: black;
+	transition: 0.3s;
+	width: 500px;
+	margin: auto 0px;
+	text-align: center;
+	margin: auto;
+	display: flexbox;
+	padding: 10px ;
+	background-size: 400% 400%;
+	background-size: 400% 400%;
+	border-radius: 0px;
+	box-shadow: 3px 3px 20px #000000;
+	justify-content: space-between;
+	font-family: URW Chancery L, cursive	;
+	font-weight: lighter;
+	font-size: 20px;
+	letter-spacing: 1px;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card2:hover {
+	box-shadow: 10px 10px 10px  rgb(98, 64, 0);
+  }
+
+.container {
+	display: flex;
+}
+.container2 {
+	margin-top: 150px;
+	display: flexbox;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 1;
+	overflow: hidden;
+	background: rgb(255, 255, 255);
+	transition: 3s;
+  
+  }
+  
+  ul {
+	list-style-type: none;
+	margin-top: 0;
+	display: flex;
+	padding: 18px 0;
+	background-size: 400% 400%;
+	background-image: linear-gradient(-45deg, #006e0d, #00570d, #000000, #722d01,#5a3105);
+	animation: 12s myGradient infinite;
+	border-radius: 0px;
+	box-shadow: 3px 3px 20px #000000;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	justify-content: space-between;
+  }
+ 
+  
+  @keyframes myGradient {
+	0% {
+	  background-position: 0% 50%;
+	}
+	
+	50%{
+	  background-position: 100% 50%;
+	}
+	
+	100% {
+	  background-position: 0% 50%;
+	}
+  }
+  
+  .fa-search{
+	transition: 1s;
+	cursor: pointer;
+	margin-left: 30px;
+  }
+  
+  .active {
+	transition: 1s;
+  }
+  
+  .active1{
+	transition: 1s;
+  }
+  
+  .active2 {
+	transition: 1s;
+  }
+  
+  .active3 {
+	transition: 1s;
+  }
+  
+  li a {
+	color: #fff;
+	text-decoration: none;
+	padding: 30px 45px;
+	font-family: verdana;
+	font-weight: lighter;
+	font-size: 24px;
+	letter-spacing: 1px;
+	opacity: 0.9;
+	
+  }
+  
+  button{
+	  background-color: transparent;
+	  color: rgb(255, 255, 255);
+	text-decoration: none;
+	font-family: URW Chancery L, cursive;
+	font-weight: lighter;
+	font-size: 24px;
+	letter-spacing: 1px;
+	opacity: 0.9;
+	cursor: pointer;
+  }
+  button:active {
+	transform: translateY(4px);
+  }
+  Link{
+	text-decoration: none;
+  }
+  .leaderboard{
+	  margin-top: 70px;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+  }
+  
+  
+  .navigation {
+	position: absolute;
+	width: 100%;
+	transform: translate(-50%, -50%);
+	top: 3%;
+	left: 50%;
+  }
+  
+  .fa-search:hover {
+	color: #fff;
+	animation: 1.5s myFlash linear infinite;
+	text-shadow: 2px 2px 30px #fff;
+	transition: 2s;
+  }
+  
+  .active3:hover {
+	color: #fff;
+	animation: 1.5s myFlash linear infinite;
+	text-shadow: 2px 2px 30px #fff;
+	transition: 2s;
+	margin-top: -100px;
+  }
+  
+  .active2:hover {
+	color: #fff;
+	animation: 1.5s myFlash linear infinite;
+	text-shadow: 2px 2px 30px #fff;
+	transition: 2s;
+  }
+  
+  .active1:hover {
+	color: #fff;
+	animation: 1.5s myFlash linear infinite;
+	text-shadow: 2px 2px 30px #fff;
+	transition: 2s;
+  }
+  
+  .active:hover {
+	color: #fff;
+	animation: 1.5s myFlash linear infinite;
+	text-shadow: 2px 2px 30px #fff;
+	transition: 2s;
+  }
+  
+  @keyframes myFlash {
+	0% {
+	  opacity: 1;
+	  text-shadow: transparent;
+	}
+	
+	50% {
+	  opacity: .1;
+	}
+	
+	100% {
+	  opacity: 1;
+	  text-shadow: 2px 2px 20px #fff;
+	}
+  }
+  
+  .line-w5 {
+	width: 5px;
+	height: 500px;
+	background: tomato;
+	position: absolute;
+	transform: translate(-50%, -30%);
+	top: 50%;
+	left: 40%;
+	border-radius: 30px;
+	background-image: linear-gradient(-45deg, #ff408c, #ff4040, #6666ff);
+	background-size: 400% 400%;
+	animation: 13s myBackground infinite;
+	box-shadow: 2px 2px 10px #ff2e38;
+	transition: 3s;
+  }
+  
+  @keyframes myBackground {
+	0% {
+	  background-position: 0% 50%;
+	  opacity: 0%;
+	}
+	
+	50% {
+	  background-position: 100% 50%;
+	}
+	
+	100% {
+	  background-position: 0% 50%;
+	  opacity: 1;
+	}
+  }
+  
+  
+  @keyframes myLinear {
+	0%{
+	  width: 50px;
+	}
+	
+	100% {
+	  width: 250px;
+	}
+  }
+  
+  .flash-GIF {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: #ff5959;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 15%;
+	left: 10%;
+	box-shadow: 2px 2px 20px #d4267d;
+	animation: 1.6s myFlash linear infinite;
+  }
+  
+  @keyframes myFlash{
+	0% {
+	  opacity: 1;
+	}
+	
+	50%{
+	  opacity: .1;
+	}
+	
+	100% {
+	  opacity: 1;
+	}
+  }
+  
+  nav {
+	transition: 3s;
+	animation: 3s myAnimation ease linear;
+  }
+  
+  @keyframes myAnimation {
+	0% {
+	  opacity: 0;
+	}
+	
+	100% {
+	  opacity: 1;
+	}
+  }
+  
+  .nav-type {
+	animation: 3s myWorld ease linear;
+  }
+  
+  @keyframes myWorld {
+	0% {
+	  opacity: 0;
+	}
+	
+	100% {
+	  opacity: 1;
+	}
+  }
+  
+  @media(max-width: 767px) {
+	.flash-GIF {
+	  display: none;
+	}
+	
+	.line-w5 {
+	  display: none;
+	}
+	
+	.navigation {
+	  position: absolute;
+	  transform: translate(-50%, -50%);
+	  top: 50%;
+	  left: 50%;
+	}
+	
+	.text-content-fluid {
+	  position: absolute;
+	  transform: translate(-50%, -50%);
+	  top: 65%;
+	  left: 50%;
+	}
+	
+	ul {
+	  padding: 15px 0;
+	}
+	
+	
+	li a {
+	  padding: 34px 34px;
+	  font-size: 23px;
+	  font-weight: lighter;
+	}
+	
+	.radial-cyrcle {
+	  width: 60px;
+	  height: 60px;
+	  border-radius: 50%;
+	  background: tomato;
+	  position: absolute;
+	  transform: translate(-50%, -50%);
+	  top: 70%;
+	  left: 50%;
+	  box-shadow: 2px 2px 20px #ff3352;
+	  background-image: linear-gradient(to top, #ff2657, #ff3333, #ff5900);
+	}
+  }
+  
+  .text-content-fluid {
+	display: flex;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 53%;
+	left: 50%;
+	letter-spacing: 25px;
+	font-size: 50px;
+	font-family: verdana;
+  }
+  
+  
+  
+  @media(max-width: 767px) {
+	.text-content-fluid {
+	  position: absolute;
+	  transform: translate(-50%, -50%);
+	  left: 50%;
+	  top: 60%;
+	}
+  }
+  
+  
+  
+  /*Ideal screen pixel 1317px*/
+  
+  
+  
+  @keyframes myLineargradient {
+	0% {
+	  background-position: 0% 50%;
+	  box-shadow: 2px 3px 20px #ff1700;
+	}
+	
+	50% {
+	  background-position: 100% 50%;
+	   box-shadow: none;
+	}
+	
+	100% {
+	  background-position: 0% 50%;
+	   box-shadow: 2px 3px 20px #ff1700;
+	}
+  }
+  
+  /*top: 71%*/
+  
+  
+  .Active {
+	transition: 2s;
+	margin-top: 1px;
+  }
+  

@@ -24,7 +24,7 @@ def register():
     if not valid_user:
         return redirect("/register_here")
     
-    session["user_id"] = valid_user.id
+    session["users_id"] = valid_user.id
     
     return redirect("/dashboard")
 

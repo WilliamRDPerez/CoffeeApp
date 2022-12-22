@@ -81,18 +81,18 @@ class Coffee:
             coffee_obj = cls(coffee)
 
             # convert joined user data into a user object
-            coffee_obj.user = user.User(
-                {
-                    "id": coffee["user_id"],
-                    "first_name": coffee["first_name"],
-                    "last_name": coffee["last_name"],
-                    "email": coffee["email"],
-                    "password": None,
-                    "created_at": coffee["uc"],
-                    "updated_at": coffee["uu"]
-                }
-            )
-            coffees.append(coffee_obj)
+        coffee_obj.user = user.User(
+            {
+                "id": coffee["user_id"],
+                "first_name": coffee["first_name"],
+                "last_name": coffee["last_name"],
+                "email": coffee["email"],
+                "password": None,
+                "created_at": coffee["uc"],
+                "updated_at": coffee["uu"]
+            }
+        )
+        coffees.append(coffee_obj)
 
 
         return coffees
