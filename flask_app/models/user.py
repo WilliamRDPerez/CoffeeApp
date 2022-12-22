@@ -13,9 +13,8 @@ DB = "coffee"
 
 class User:
     
-    def __init__(self,user):
-
-        self.id = user["id"]
+    def __init__(self, user):
+        self.id = user["users_id"]
         self.first_name = user["first_name"]
         self.last_name = user["last_name"]
         self.email = user["email"]
@@ -26,22 +25,16 @@ class User:
         self.password = user["password"] 
         self.created_at = user["created_at"]
         self.updated_at = user["updated_at"]
+        self.coffees = []
 
 
     @classmethod
-    def get_by_email(cls,email):
-
-        data = {
-            "email": email
-        }
+    def get_by_email(cls, data):
         query = "SELECT * FROM users WHERE email = %(email)s;"
-        result = connectToMySQL(DB).query_db(query,data)
-        print("************", result)
-        
-        
-        if len(result) < 1:
+        qresult = connectToMySQL(DB).query_db(query,data)
+        if len(qresult) < 1:
             return False
-        return cls(result[0])
+        return cls(qresult[0])
     
     @classmethod
     def get_by_id(cls, user_id):
@@ -105,7 +98,7 @@ class User:
             flash("Password must be at least 8 characters","register")
             valid= False
             
-        if not user["password"] == user["password_confirmation"]:
+        if user["password"] != user["password_confirmation"]:
             flash("Passwords must match.", "password")
             valid = False
 
@@ -122,9 +115,9 @@ class User:
     def existing_user(cls, input):
         
         valid = True
-        result = cls.get_by_email(input["email"])
+        result = cls.get_by_email(input)
         password_valid = True
-        # print("***********", result.password)
+        
 
         if not result:
             valid = False

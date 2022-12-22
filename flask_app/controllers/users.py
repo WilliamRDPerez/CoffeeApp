@@ -26,21 +26,19 @@ def register():
     
     session["users_id"] = valid_user.id
     
-    return redirect("/dashboard")
+    return redirect("/")
 
 @app.route("/login", methods=["POST"])
 def login():
-        valid_user = User.get_by_email(request.form)
+        valid_user = User.existing_user(request.form) 
+        user_info = User.get_by_email(request.form)
+
     
         if not valid_user:
             flash("Invalid email/password","login")
             return redirect("/")
 
-        if not bcrypt.check_password_hash(valid_user.password, request.form['password']):
-            flash("Invalid email/password","login")
-            return redirect('/log_in')
-
-        session["user_id"] = valid_user.id
+        session["user_id"] = user_info.id
         return redirect("/dashboard")
     
 
