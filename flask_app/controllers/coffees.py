@@ -28,6 +28,23 @@ def create_coffee():
         return redirect(f'/coffees/{valid_coffee.id}')
     return redirect('/create')
 
+    data = {
+        'size': request.form['size'],
+        'carry_out': request.form['carry_out'],
+        'temp': request.form['temp'],
+        'quantity': request.form['quantity'],
+        'coffee': request.form['coffee'],
+        'latte': request.form['latte'],
+        'americano': request.form['americano'],
+        'cappuccino': request.form['cappuccino'],
+        'caramel': request.form['caramel'],
+        'espresso': request.form['espresso'],
+        'user_id': session['user_id']
+    }
+
+    Coffee.create_valid_coffee(data)
+    return redirect(f'/coffees/{valid_coffee.id}')
+
 
 #view entry by id
 # Details page
@@ -49,6 +66,7 @@ def coffee_edit_page(coffee_id):
     
     coffee = Coffee.get_by_id(coffee_id)
     return render_template("edit.html", coffee=coffee)
+
 
 @app.route("/coffees/edit/<int:coffee_id>", methods=["POST"])
 def update_coffee(coffee_id):

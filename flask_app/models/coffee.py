@@ -25,11 +25,10 @@ class Coffee:
         self.user = None
         
     #create new valid coffee
-    @classmethod
+    @classmethod 
     def create_valid_coffee(cls, coffee_dict):
-        if not cls.is_valid(coffee_dict):
+        if not cls.is_valid(coffee_dict): 
             return False
-        
                 
         query = """INSERT INTO coffees (size, carry_out, temp, quantity, coffee, latte, americano, cappucino, caramel, espresso, user_id) VALUES (%(size)s, %(carry_out)s, %(temp)s, %(quantity)s, %(coffee)s, %(latte)s, %(americano)s, %(cappucino)s, %(caramel)s, %(espresso)s, %(user_id)s);"""
         coffee_id = connectToMySQL(DB).query_db(query, coffee_dict)
