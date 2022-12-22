@@ -31,7 +31,7 @@ class User:
     @classmethod
     def get_by_email(cls, data):
         query = "SELECT * FROM users WHERE email = %(email)s;"
-        qresult = connectToMySQL(DB).query_db(query,data)
+        qresult = connectToMySQL(DB).query_db(query, data)
         if len(qresult) < 1:
             return False
         return cls(qresult[0])
@@ -40,11 +40,12 @@ class User:
     def get_by_id(cls, user_id):
 
         data = {"id": user_id}
-        query = "SELECT * FROM users WHERE id = %(id)s;"
-        result = connectToMySQL(DB).query_db(query,data)
-
+        
+        query = "SELECT * FROM users WHERE users_id = %(id)s;"
+        result = connectToMySQL(DB).query_db(query, data)
+        print(data)
         if len(result) < 1:
-            return False
+            return False 
         return cls(result[0])
 
     @classmethod
@@ -102,7 +103,7 @@ class User:
             flash("Passwords must match.", "password")
             valid = False
 
-        email_already_has_account = User.get_by_email(user["email"])
+        email_already_has_account = User.get_by_email(user)
         if email_already_has_account:
             flash("An account with that email already exists, please log in.", "password")
             valid = False

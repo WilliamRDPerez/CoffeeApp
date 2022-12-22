@@ -9,7 +9,7 @@ DB = "coffee"
     
 class Coffee:
     def __init__(self, coffee):
-        self.id= coffee["id"]
+        self.id= coffee["coffees_id"]
         self.name= coffee["name"]
         self.description= coffee["description"]
         self.date= coffee["date"]
@@ -67,7 +67,7 @@ class Coffee:
     def get_all(cls):
 
         query = """SELECT 
-                    coffees.id, coffees.created_at, coffees.updated_at, description, name, date,
+                    coffees_id, coffees.created_at, coffees.updated_at, description, name, date,
                     users.id as user_id, first_name, last_name, email, address, city, state, zip, users.created_at as uc, users.updated_at as uu
                     FROM coffees
                     JOIN users on users.id = coffees.user_id;"""

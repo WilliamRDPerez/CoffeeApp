@@ -39,12 +39,13 @@ def login():
             return redirect("/")
 
         session["user_id"] = user_info.id
+        print(user_info.id)
         return redirect("/dashboard")
     
 
 @app.route("/dashboard")
 def dashboard():
-    if "user_id" not in session:
+    if not session["user_id"]:
         flash("You must be logged in to access the dashboard.")
         return redirect("/")
     

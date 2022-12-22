@@ -3,3 +3,12 @@
     padding: 0px;
 }
 
+.dashboard_main_div {
+    margin: 0px auto;
+    width: 1000px;
+    border: 2px solid black;
+}
+
+.dashboard_top_nav_bar {
+    
+}
