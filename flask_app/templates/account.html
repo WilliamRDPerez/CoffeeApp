@@ -16,10 +16,10 @@
             <div class="navigation">
                 <nav>
                     <ul>
-                        <li><Link to='/dashboard' class="active"><button>Dashboard</button></Link></li>
-                        <li><Link to='/create' class="active"><button>Order</button></Link></li>
-                        <li><Link to='/profile' class="active"><button>Account</button></Link></li>
-                        <li><Link to='/logout' class="active"><button>Logout</button></Link></li>
+                        <li><a href='/dashboard' class="active"><button>Dashboard</a></Link></li>
+                        <li><a href='/create' class="active"><button>Order</button></a></li>
+                        <li><a href='/profile' class="active"><button>Account</button></a></li>
+                        <li><a href='/logout' class="active"><button>Logout</button></a></li>
                     </ul>
                 </nav>
             </div>
@@ -27,7 +27,7 @@
     </div>
     
     <div class="container">
-        <form  action="/updateprofile/{{user.id}}" method="POST" id="msform">
+        <form  action="" method="POST" id="msform">
         <h3 >Account Info</h3>
         {% with messages = get_flashed_messages(category_filter=['register']) %}
             {% if messages %}
