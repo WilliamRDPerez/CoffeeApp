@@ -6,13 +6,13 @@
 .register_main_div {
     margin: 0px auto;
     width: 1000px;
-    height: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .register_form_container {
+    margin-top: 40px;
     width: 500px;
     height: 600px;
     display: flex;

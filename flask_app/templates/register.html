@@ -16,13 +16,6 @@
         <div class="register_form_container">
             <form class="form_div" action="/register" method="post">
                 <h3 class="register_h3">Register</h3>
-                {% with messages = get_flashed_messages(category_filter=["Register"]) %}
-                    {% if messages %}
-                        {% for message in messages %}
-                            <p>{{message}}</p>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
                 <div class="first_last_name_all_inputs_register">
                     <tr class="tr_padding">
                         <input class="first_last_name_input_register" id="first_name_input" type="text" name="first_name" placeholder="First Name">
@@ -105,7 +98,7 @@
                     <input class="register_inputs" type="password" name="password" placeholder="Password">
                 </tr>
                 <tr class="tr_padding">
-                    <input class="register_inputs" type="password" name="confirm_password" placeholder="Confirm Password">
+                    <input class="register_inputs" type="password" name="password_confirmation" placeholder="Confirm Password">
                 </tr>
                 <div class="submit_div">
                     <input class="register_inputs" id="register_button" type="submit" value="Register">
