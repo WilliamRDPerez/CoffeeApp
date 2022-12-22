@@ -23,19 +23,36 @@ def create():
 
 @app.route("/create/new", methods=["POST"])
 def create_coffee():
-    valid_coffee = Coffee.create_valid_coffee(request.form)
+    data = {
+        'size': request.form['size'],
+        'carry_out': request.form['carry_out'],
+        'temp': request.form['temp'],
+        'quantity': request.form['quantity'],
+        'coffee': request.form['coffee'],
+        'latte': request.form['latte'],
+        'americano': request.form['americano'],
+        'cappuccino': request.form['cappuccino'],
+        'caramel': request.form['caramel'],
+        'espresso': request.form['espresso'],
+        'users_id': session['user_id']
+    }
+    valid_coffee = Coffee.create_valid_coffee(data)
     if valid_coffee:
-        return redirect(f'/coffees/{valid_coffee.id}')
-    return redirect('/create')
+        Coffee.create_valid_coffee(data)
+        # return redirect(f'/coffees/{valid_coffee.id}')
+        return redirect("/dashboard")
 
+    print("data from controllers", data)
+    return redirect('/create')
+    
 
 #view entry by id
 # Details page
 @app.route("/coffees/<int:coffee_id>")
 def coffee_detail(coffee_id):
     user = User.get_by_id(session["user_id"])
-    coffee = Coffee.get_by_id(coffee_id)
-    return render_template("yourorder.html", user=user, coffee=coffee)
+    # coffee = Coffee.get_by_id(coffee_id)
+    return render_template("yourorder.html", user=user) # coffee=coffee)
 #may need to add similar to recipe=recipe after user=user
 
 
@@ -49,6 +66,7 @@ def coffee_edit_page(coffee_id):
     
     coffee = Coffee.get_by_id(coffee_id)
     return render_template("edit.html", coffee=coffee)
+
 
 @app.route("/coffees/edit/<int:coffee_id>", methods=["POST"])
 def update_coffee(coffee_id):
@@ -69,9 +87,9 @@ def profile():
         return redirect("/")
     
     user = User.get_by_id(session["user_id"])
-    #coffees = Coffee.get_all()
+    coffees = Coffee.get_all()
     
-    return render_template("account.html", user=user) #coffees=coffees)
+    return render_template("account.html", user=user, coffees=coffees)
 
 @app.route("/updateprofile/<int:id>", methods=["POST"])
 def updateprofile(id):

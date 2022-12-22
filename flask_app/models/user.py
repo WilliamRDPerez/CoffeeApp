@@ -14,7 +14,7 @@ DB = "coffee"
 class User:
     
     def __init__(self, user):
-        self.id = user["users_id"]
+        self.id = user["user_id"]
         self.first_name = user["first_name"]
         self.last_name = user["last_name"]
         self.email = user["email"]
@@ -40,11 +40,11 @@ class User:
     def get_by_id(cls, user_id):
 
         data = {"id": user_id}
-        query = "SELECT * FROM users WHERE users_id = %(id)s;"
+        query = "SELECT * FROM users WHERE user_id = %(id)s;"
         result = connectToMySQL(DB).query_db(query,data)
 
         
-        query = "SELECT * FROM users WHERE users_id = %(id)s;"
+        query = "SELECT * FROM users WHERE user_id = %(id)s;"
         result = connectToMySQL(DB).query_db(query, data)
         print(data)
         if len(result) < 1:
