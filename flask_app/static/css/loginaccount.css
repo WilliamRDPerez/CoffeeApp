@@ -4,7 +4,6 @@
 	text-align: center;
 	position: relative;
     margin-top: 100px;
-  
 }
 
 /*inputs*/
@@ -36,8 +35,8 @@
 }
 
 header{
-  font-size: xx-large;
-  margin: 25px 0px;
+	font-size: xx-large;
+	margin: 25px 0px;
 }
 
 .form-fields>input{
