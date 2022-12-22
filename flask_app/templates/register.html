@@ -14,7 +14,7 @@
         <div class="register_form_container">
             <form class="form_div" action="/register" method="post">
                 <h3 class="register_h3">Register</h3>
-                {% with messages = get_flashed_messages(category_filter=['login']) %}
+                {% with messages = get_flashed_messages(category_filter=['register']) %}
                     {% if messages %}
                         <strong style="color: red;">Something aint right...</strong>
                             {% for message in messages %}
