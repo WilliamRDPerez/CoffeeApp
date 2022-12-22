@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <form action="/login" method="POST" id="msform">
+    <form action="/login" method="post" id="msform">
             <h3>Login</h3>
                 {% with messages = get_flashed_messages(category_filter=['login']) %}
                     {% if messages %}
