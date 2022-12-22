@@ -45,14 +45,12 @@ def login():
 
 @app.route("/dashboard")
 def dashboard():
-    # if not session["user_id"]:
-    #     flash("You must be logged in to access the dashboard.")
-    #     return redirect("/")
+    if not session["user_id"]:
+        flash("You must be logged in to access the dashboard.")
+        return redirect("/")
     
-    # user = User.get_by_id(session["user_id"])
-    # coffees = Coffee.get_all()
-    # , user=user, coffees=coffees
-    return render_template("dashboard.html")
+    user = User.get_by_id(session["user_id"])
+    return render_template("dashboard.html", user=user)
 
 
 @app.route("/logout")

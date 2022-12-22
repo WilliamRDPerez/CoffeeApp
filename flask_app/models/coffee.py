@@ -9,7 +9,7 @@ DB = "coffee"
     
 class Coffee:
     def __init__(self, coffee):
-        self.id = coffee["id"]
+        self.id = coffee["idw"]
         self.size = coffee["size"]
         self.carry_out = coffee["carry_out"]
         self.temp = coffee["temp"]
@@ -31,7 +31,7 @@ class Coffee:
             return False
         
                 
-        query = """INSERT INTO coffees (size, carry_out, temp, quantity, coffee, latte, americano, cappucino, caramel, espresso, user_id) VALUES (%(size)s, %(carry_out)s, %(temp)s, %(quantity)s, %(coffee)s, %(latte)s, %(americano)s, %(cappucino)s, %(caramel)s, %(espresso)s, %(user_id)s);"""
+        query = """INSERT INTO coffees (size, carry_out, temp, quantity, coffee, latte, americano, cappuccino, caramel, espresso, user_id) VALUES (%(size)s, %(carry_out)s, %(temp)s, %(quantity)s, %(coffee)s, %(latte)s, %(americano)s, %(cappucino)s, %(caramel)s, %(espresso)s, %(user_id)s);"""
         coffee_id = connectToMySQL(DB).query_db(query, coffee_dict)
         coffee = cls.get_by_id(coffee_id)
 
@@ -42,7 +42,7 @@ class Coffee:
     def get_by_id(cls, coffee_id):
         print(f"get coffee by id {coffee_id}")
         data = {"id": coffee_id}
-        query = """SELECT coffees.id, coffees.created_at, coffees.updated_at, name, carry_out, date, size, carry_out, temp, quantity, coffee, latte, americano, cappucino, caramel, espresso,
+        query = """SELECT coffees.id, coffees.created_at, coffees.updated_at, carry_out, size, carry_out, temp, quantity, coffee, latte, americano, cappuccino, caramel, espresso,
                     users.id as user_id, first_name, last_name, email, address, city, state, zip, users.created_at as uc, users.updated_at as uu
                     FROM coffees
                     JOIN users on users.id = coffees.user_id
@@ -77,10 +77,10 @@ class Coffee:
     @classmethod
     def get_all(cls):
 
-        query = """SELECT coffees.id, coffees.created_at, coffees.updated_at, name, carry_out, date, size, carry_out, temp, quantity, coffee, latte, americano, cappucino, caramel, espresso,
-                    users.id as user_id, first_name, last_name, email, address, city, state, zip, users.created_at as uc, users.updated_at as uu
+        query = """SELECT coffees.id, coffees.created_at, coffees.updated_at, carry_out, size, carry_out, temp, quantity, coffee, latte, americano, cappuccino, caramel, espresso,
+                    user_id as users_id, first_name, last_name, email, address, city, state, zip, users.created_at as uc, users.updated_at as uu
                     FROM coffees
-                    JOIN users on users.id = coffees.user_id;"""
+                    JOIN users on users.users_id = coffees.user_id;"""
         coffee_data = connectToMySQL(DB).query_db(query)
 
 
