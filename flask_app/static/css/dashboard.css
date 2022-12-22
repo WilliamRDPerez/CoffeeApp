@@ -3,3 +3,83 @@
     padding: 0px;
 }
 
+.dashboard_main_div {
+    margin: 0px auto;
+    width: 1000px;
+}
+
+.dashboard_top_nav_bar {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.dashboard_nav_bar_div {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.dashboard_nav_bar_links {
+    text-align: center;
+    float: left;
+    text-align: center;
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: 13px;
+} 
+
+.nav_bar_buttons {
+    border-radius: 0px;
+    border-left: none;
+    box-shadow: 2px 2px black;
+}
+
+#nav_bar_button_1 {
+    background-color: rgb(8, 90, 15);
+    border-left: 2px solid black;
+}
+
+/* Bottom Container CSS */
+
+.dashboard_bottom_container {
+    margin: 0px auto;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dashboard_bottom_cards {
+    height: 350px;
+    width: 300px;
+    border: 2px solid black;
+}
+
+.dashboard_bottom_card_body {
+    text-align: center;
+    margin: 20px;
+    margin-top: 40px;
+    font-size: large;
+}
+
+.tab {
+    margin-left: 10px;
+}
+
+.dashboard_bottom_card_button {
+    text-align: center;
+    position: relative;
+    left: 105px;
+    top: 100px;
+    padding: 8px;
+    box-shadow: 2px 2px black;
+    border: 2px solid black;
+    background-color: rgb(169, 132, 103);
+}
+
+#dashboard_bottom_card_button1 {
+    position: relative;
+    left: 90px;
+}

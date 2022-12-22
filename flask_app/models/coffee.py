@@ -9,10 +9,17 @@ DB = "coffee"
     
 class Coffee:
     def __init__(self, coffee):
-        self.id= coffee["id"]
-        self.name= coffee["name"]
-        self.description= coffee["description"]
-        self.date= coffee["date"]
+        self.id = coffee["id"]
+        self.size = coffee["size"]
+        self.carry_out = coffee["carry_out"]
+        self.temp = coffee["temp"]
+        self.quantity = coffee["quantity"]
+        self.coffee = coffee["coffee"]
+        self.latte = coffee["latte"]
+        self.americano = coffee["americano"]
+        self.cappuccino = coffee["cappuccino"]
+        self.caramel = coffee["caramel"]
+        self.espresso = coffee["espresso"]
         self.created_at = coffee["created_at"]
         self.updated_at = coffee["updated_at"]
         self.user = None
@@ -24,7 +31,7 @@ class Coffee:
             return False
         
                 
-        query = """INSERT INTO coffees (name, description, date, user_id) VALUES (%(name)s, %(description)s, %(date)s, %(user_id)s);"""
+        query = """INSERT INTO coffees (size, carry_out, temp, quantity, coffee, latte, americano, cappucino, caramel, espresso, user_id) VALUES (%(size)s, %(carry_out)s, %(temp)s, %(quantity)s, %(coffee)s, %(latte)s, %(americano)s, %(cappucino)s, %(caramel)s, %(espresso)s, %(user_id)s);"""
         coffee_id = connectToMySQL(DB).query_db(query, coffee_dict)
         coffee = cls.get_by_id(coffee_id)
 
@@ -35,7 +42,7 @@ class Coffee:
     def get_by_id(cls, coffee_id):
         print(f"get coffee by id {coffee_id}")
         data = {"id": coffee_id}
-        query = """SELECT coffees.id, coffees.created_at, coffees.updated_at, name, description, date, 
+        query = """SELECT coffees.id, coffees.created_at, coffees.updated_at, name, carry_out, date, size, carry_out, temp, quantity, coffee, latte, americano, cappucino, caramel, espresso,
                     users.id as user_id, first_name, last_name, email, address, city, state, zip, users.created_at as uc, users.updated_at as uu
                     FROM coffees
                     JOIN users on users.id = coffees.user_id
@@ -51,9 +58,13 @@ class Coffee:
         coffee.user = user.User(
                 {
                     "id": result["user_id"],
-                    "first_name": result["first_name"],
-                    "last_name": result["last_name"],
-                    "email": result["email"],
+                    "first_name" : result["first_name"],
+                    "last_name" : result["last_name"],
+                    "email" : result["email"],
+                    "address" : result["address"],
+                    "city" : result["city"],
+                    "state" : result["state"],
+                    "zip" : result["zip"],
                     "password": None,
                     "created_at": result["uc"],
                     "updated_at": result["uu"]
@@ -66,8 +77,7 @@ class Coffee:
     @classmethod
     def get_all(cls):
 
-        query = """SELECT 
-                    coffees.id, coffees.created_at, coffees.updated_at, description, name, date,
+        query = """SELECT coffees.id, coffees.created_at, coffees.updated_at, name, carry_out, date, size, carry_out, temp, quantity, coffee, latte, americano, cappucino, caramel, espresso,
                     users.id as user_id, first_name, last_name, email, address, city, state, zip, users.created_at as uc, users.updated_at as uu
                     FROM coffees
                     JOIN users on users.id = coffees.user_id;"""
@@ -82,14 +92,18 @@ class Coffee:
 
             # convert joined user data into a user object
         coffee_obj.user = user.User(
-            {
-                "id": coffee["user_id"],
-                "first_name": coffee["first_name"],
-                "last_name": coffee["last_name"],
-                "email": coffee["email"],
-                "password": None,
-                "created_at": coffee["uc"],
-                "updated_at": coffee["uu"]
+                {
+                    "id": coffee["user_id"],
+                    "first_name" : coffee["first_name"],
+                    "last_name" : coffee["last_name"],
+                    "email" : coffee["email"],
+                    "address" : coffee["address"],
+                    "city" : coffee["city"],
+                    "state" : coffee["state"],
+                    "zip" : coffee["zip"],
+                    "password": None,
+                    "created_at": coffee["uc"],
+                    "updated_at": coffee["uu"]
             }
         )
         coffees.append(coffee_obj)
@@ -113,7 +127,8 @@ class Coffee:
         
         # Update the data in the database.
         query = """UPDATE coffees
-                    SET name = %(name)s, description = %(description)s, date=%(date)s
+                    SET 
+                    size = %(size)s, carry_cout = %(carry_out)s, temp = %(temp)s, quantity = %(quantity)s, coffee - %(coffee)s, latte = %(latte)s, americano = %(americano)s, cappucino = %(cappucino)s, caramel = %(caramel)s, espresso = %(espresso)s
                     WHERE id = %(id)s;"""
         result = connectToMySQL(DB).query_db(query,coffee_dict)
         coffee = cls.get_by_id(coffee_dict["id"])
