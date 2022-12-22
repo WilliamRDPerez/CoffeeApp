@@ -140,6 +140,29 @@ class User:
         return valid
 
     @classmethod
-    def update(data):
-        query = "UPDATE users SET first_name=%(first_name)s, last_name=%(last_name)s, email=%(email)s, address=%(address)s, city=%(city)s, state=%(state)s, zip=%(zip)s WHERE id=%(id)s;"
+    def update(cls, data):
+        query = "UPDATE users SET first_name=%(first_name)s, last_name=%(last_name)s, email=%(email)s, address=%(address)s, city=%(city)s, state=%(state)s, zip=%(zip)s WHERE users_id=%(id)s;"
         return connectToMySQL(DB).query_db(query, data)
+    
+    @classmethod
+    def validate_update(cls, user):
+        valid = True
+
+        if len(user["first_name"]) < 2:
+            valid = False
+            flash("First name must be at least 2 characters.", "register")
+            
+        if len(user["last_name"]) < 2:
+            valid = False
+            flash("Last name must be at least 2 characters.", "register") 
+            
+        if not EMAIL_REGEX.match(user['email']): 
+            flash("Invalid email address", "register")
+            valid = False
+
+        email_already_has_account = User.get_by_email(user)
+        if email_already_has_account:
+            flash("An account with that email already exists, please log in.", "password")
+            valid = False
+
+        return valid
