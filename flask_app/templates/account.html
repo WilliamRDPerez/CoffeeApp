@@ -16,7 +16,7 @@
             <div class="navigation">
                 <nav>
                     <ul>
-                        <li><Link to='/dashboard' class="active"><button>Profile</button></Link></li>
+                        <li><Link to='/dashboard' class="active"><button>Dashboard</button></Link></li>
                         <li><Link to='/create' class="active"><button>Order</button></Link></li>
                         <li><Link to='/profile' class="active"><button>Account</button></Link></li>
                         <li><Link to='/logout' class="active"><button>Logout</button></Link></li>
@@ -27,7 +27,7 @@
     </div>
     
     <div class="container">
-        <form  action="" method="POST" id="msform">
+        <form  action="/updateprofile/{{user.id}}" method="POST" id="msform">
         <h3 >Account Info</h3>
         {% with messages = get_flashed_messages(category_filter=['register']) %}
             {% if messages %}
@@ -67,17 +67,26 @@
         
         <input type="submit" value="Update" class="action-button">
     
-    </form>
+    </form>        
+    
+    <h3 style="margin-top: 100px;translate: 320px  ">Past Orders</h3>
 
     <form  class="container2">
-        <h1>Past Orders</h1>
-        {% for coffee in coffees %}
+
+        
         <div class="card2">
             <p>Drink Name: White mocha</p>
-            <p>Description: Large 2 with sprinkles</p>
-            <p>Date Ordered:  11/11/2003</p>
+            <p>Description: Large with carmel</p>
+            <p>Date Ordered:  12/14/2022</p>
+        </div>
+        {% for coffee in coffees %}
+        <div class="card2">
+            <p>Drink Name: {{coffee.name}}</p>
+            <p>Description: {{coffee.description}}</p>
+            <p>Date Ordered:  {{coffee.created_at.strftime('%m-%d-%Y')}} </p>
         </div>
         {% endfor %}
+        
         
     </form>
     
