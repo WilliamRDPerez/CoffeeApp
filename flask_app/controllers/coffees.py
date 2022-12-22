@@ -18,7 +18,7 @@ def create():
     
     user = User.get_by_id(session["user_id"])
     #need to add get all 
-    return render_template("create.html")
+    return render_template("neworder.html")
 
 
 @app.route("/create/new", methods=["POST"])
@@ -35,7 +35,7 @@ def create_coffee():
 def coffee_detail(coffee_id):
     user = User.get_by_id(session["user_id"])
     coffee = Coffee.get_by_id(coffee_id)
-    return render_template("details.html", user=user, coffee=coffee)
+    return render_template("yourorder.html", user=user, coffee=coffee)
 #may need to add similar to recipe=recipe after user=user
 
 
@@ -71,7 +71,7 @@ def profile():
     user = User.get_by_id(session["user_id"])
     coffees = Coffee.get_all()
     
-    return render_template("profile.html", user=user, coffees=coffees)
+    return render_template("account.html", user=user, coffees=coffees)
 
 @app.route("/updateprofile/<int:id>", methods=["POST"])
 def updateprofile(id):

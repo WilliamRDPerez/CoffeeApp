@@ -100,6 +100,10 @@ class User:
         if not EMAIL_REGEX.match(user['email']): 
             flash("Invalid email address", "register")
             valid = False
+
+        if len(user['password']) < 2:
+            flash("Password must be at least 8 characters","register")
+            valid= False
             
         if not user["password"] == user["password_confirmation"]:
             flash("Passwords must match.", "password")
@@ -140,5 +144,5 @@ class User:
 
     @classmethod
     def update(data):
-        query = "UPDATE users first_name=%(first_name)s, last_name=%(last_name)s, email=%(email)s, address=%(address)s, city=%(city)s, state=%(state)s, zip=%(zip)s WHERE id=%(id)s;"
+        query = "UPDATE users SET first_name=%(first_name)s, last_name=%(last_name)s, email=%(email)s, address=%(address)s, city=%(city)s, state=%(state)s, zip=%(zip)s WHERE id=%(id)s;"
         return connectToMySQL(DB).query_db(query, data)
