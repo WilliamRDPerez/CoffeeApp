@@ -69,14 +69,14 @@ def profile():
         return redirect("/")
     
     user = User.get_by_id(session["user_id"])
-    coffees = Coffee.get_all()
+    #coffees = Coffee.get_all()
     
-    return render_template("account.html", user=user, coffees=coffees)
+    return render_template("account.html", user=user) #coffees=coffees)
 
 @app.route("/updateprofile/<int:id>", methods=["POST"])
 def updateprofile(id):
-    if not User.is_valid(request.form):
-        return redirect ('/dashboard')
+    if not User.validate_update(request.form):
+        return redirect ('/profile')
 
     User.update(request.form)
     return redirect('/dashboard')
