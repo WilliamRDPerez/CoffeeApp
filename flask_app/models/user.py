@@ -105,7 +105,7 @@ class User:
             flash("Password must be at least 8 characters","register")
             valid= False
             
-        if not user["password"] == user["password_confirmation"]:
+        if user["password"] != user["password_confirmation"]:
             flash("Passwords must match.", "password")
             valid = False
 
