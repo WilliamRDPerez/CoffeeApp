@@ -9,10 +9,19 @@
 
 
 <body>
+
     <div class="register_main_div">
         <div class="register_form_container">
             <form class="form_div" action="/register" method="post">
                 <h3 class="register_h3">Register</h3>
+                {% with messages = get_flashed_messages(category_filter=['register']) %}
+                    {% if messages %}
+                        <strong style="color: red;">Something aint right...</strong>
+                            {% for message in messages %}
+                                <p style="color: red;">{{message}}</p>
+                            {% endfor %}
+                    {% endif %}
+                {% endwith %}
                 <div class="first_last_name_all_inputs_register">
                     <tr class="tr_padding">
                         <input class="first_last_name_input_register" id="first_name_input" type="text" name="first_name" placeholder="First Name">
@@ -106,6 +115,7 @@
             </form>
         </div>
     </div>
+
     
 </body>
 
