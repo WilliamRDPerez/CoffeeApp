@@ -41,6 +41,11 @@
     border-left: 2px solid black;
 }
 
+.dashboard_anchors {
+    text-decoration: none;
+    color: black;
+}
+
 /* Bottom Container CSS */
 
 .dashboard_bottom_container {
